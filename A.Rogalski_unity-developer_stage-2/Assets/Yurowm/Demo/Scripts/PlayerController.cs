@@ -29,12 +29,7 @@ public class PlayerController : MonoBehaviour {
 					newRightGun.transform.localPosition = Vector3.zero;
 					newRightGun.transform.localRotation = Quaternion.Euler(90, 0, 0);
 					}
-				if (hand.leftGun != null) {
-					GameObject newLeftGun = (GameObject) Instantiate(hand.leftGun);
-					newLeftGun.transform.parent = leftGunBone;
-					newLeftGun.transform.localPosition = Vector3.zero;
-					newLeftGun.transform.localRotation = Quaternion.Euler(90, 0, 0);
-				}
+
 				animator.runtimeAnimatorController = hand.controller;
 				return;
 				}
@@ -45,7 +40,6 @@ public class PlayerController : MonoBehaviour {
 	public struct Arsenal {
 		public string name;
 		public GameObject rightGun;
-		public GameObject leftGun;
 		public RuntimeAnimatorController controller;
 	}
 }

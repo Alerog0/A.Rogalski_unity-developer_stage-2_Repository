@@ -6,6 +6,7 @@ public class Ray_Caster : MonoBehaviour
 {
     public int RayCount = 10;
     private LineRenderer lr;
+    [SerializeField] private Animator anim;
     private bool holding = false;
     private Color c1 = new Color(1, 1, 1, 1);
     private Color c2 = new Color(1, 1, 1, 0);
@@ -27,12 +28,16 @@ public class Ray_Caster : MonoBehaviour
         {
             holding = true;
             lr.SetColors(c1, c1);
+            anim.SetBool("Aiming", true);
         }
         if (Input.GetMouseButtonUp(0))
         {
             holding = false;
             lr.SetColors(c2, c2);
             Aiming(transform.position, transform.forward, true);
+            anim.SetTrigger("Attack");
+            anim.SetBool("Aiming", false);
+
 
 
         }
