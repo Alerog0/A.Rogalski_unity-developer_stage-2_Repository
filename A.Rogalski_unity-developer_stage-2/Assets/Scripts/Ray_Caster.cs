@@ -7,6 +7,7 @@ public class Ray_Caster : MonoBehaviour
     public int RayCount = 10;
     private LineRenderer lr;
     [SerializeField] private Animator anim;
+    [SerializeField] private ParticleSystem deathEffect;
     private bool holding = false;
     private Color c1 = new Color(1, 1, 1, 1);
     private Color c2 = new Color(1, 1, 1, 0);
@@ -15,22 +16,16 @@ public class Ray_Caster : MonoBehaviour
     {
         lr = GetComponent<LineRenderer>();
         holding = false;
+        anim.SetBool("Aiming", true);
 
     }
 
     void Update()
     {
-        if (holding == true)
-        {
-            Aiming(transform.position, transform.forward, false);
-        }
-        if(Input.GetMouseButtonDown(0))
-        {
-            holding = true;
-            lr.SetColors(c1, c1);
-            anim.SetBool("Aiming", true);
-        }
-        if (Input.GetMouseButtonUp(0))
+        
+        Aiming(transform.position, transform.forward, false);
+        
+        /*if (Input.GetMouseButtonUp(0))
         {
             holding = false;
             lr.SetColors(c2, c2);
@@ -40,12 +35,12 @@ public class Ray_Caster : MonoBehaviour
 
 
 
-        }
-        print(holding);
+        }*/
+    
 
     }
 
-    void Aiming(Vector3 position, Vector3 direction, bool kill)
+    public void Aiming(Vector3 position, Vector3 direction, bool kill)
     {
 
         lr.SetPosition(0, transform.position);
@@ -71,8 +66,10 @@ public class Ray_Caster : MonoBehaviour
                     lr.positionCount = i + 2;
                     if (kill == true)
                     {
+                        Instantiate(deathEffect, hit.point, Quaternion.identity);
                         hit.collider.GetComponent<Player_Controller>().Die();
                     }
+                    
                     break;
 
                 }
@@ -87,8 +84,10 @@ public class Ray_Caster : MonoBehaviour
                     lr.positionCount = i + 2;
                     if (kill == true)
                     {
+                        Instantiate(deathEffect, hit.point, Quaternion.identity);
                         hit.collider.GetComponent<Player_Controller>().Die();
                     }
+                    
                     break;
 
                 }

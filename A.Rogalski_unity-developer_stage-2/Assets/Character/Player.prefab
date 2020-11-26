@@ -111,6 +111,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RayCount: 10
   anim: {fileID: 9203670553312011552}
+  deathEffect: {fileID: 7747164979831306134, guid: fd7ad15e51abf304da3bca1bf484fc26,
+    type: 3}
 --- !u!1 &9203670553017236057
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,8 +902,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b67fda3f254b14c439d37c5de9e77d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathEffect: {fileID: 7747164979831306134, guid: fd7ad15e51abf304da3bca1bf484fc26,
-    type: 3}
   variableJoystick: {fileID: 0}
 --- !u!136 &-1953234839566841196
 CapsuleCollider:
@@ -1836,7 +1836,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 70.437
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 595438504701377184, guid: d992a232642f7574b80a75c2ca4b4cb8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d992a232642f7574b80a75c2ca4b4cb8, type: 3}
 --- !u!4 &9203670552859535661 stripped
 Transform:
