@@ -71,7 +71,7 @@ public class Ray_Caster : MonoBehaviour
                     lr.positionCount = i + 2;
                     if (kill == true)
                     {
-
+                        hit.collider.GetComponent<Player_Controller>().Die();
                     }
                     break;
 
@@ -87,7 +87,7 @@ public class Ray_Caster : MonoBehaviour
                     lr.positionCount = i + 2;
                     if (kill == true)
                     {
-                        hit.collider.GetComponent<Enemy_Controller>().Die();
+                        hit.collider.GetComponent<Player_Controller>().Die();
                     }
                     break;
 
