@@ -2,30 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_Controller : MonoBehaviour
+public class Player_Controller : MonoBehaviour, IPoolObject
 {
     private Animator anim;
-    private Rigidbody rb;
-    private Ray_Caster rc;
-    private Camera main_Camera;
-    private float rotation;
-    [SerializeField] private VariableJoystick variableJoystick;
+    protected Joystick joystick;
 
-    private float rotateVertical;
-    private float rotateHorizontal;
-    private Vector2 beginTouchPosition;
-    private Vector2 endTouchPosition;
-    private Touch touch;
 
-    private float clickStart;
-    private bool moreThenOne;
-
-    void Start()
+    public void OnObjectSpawn()
     {
-        rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
-        main_Camera = FindObjectOfType<Camera>();
-        rotation = transform.eulerAngles.y;
+        joystick = FindObjectOfType<Joystick>();
+        
     }
 
  
@@ -37,15 +24,19 @@ public class Player_Controller : MonoBehaviour
     public void Die()
     {
         anim.SetTrigger("Death");
-        Destroy(gameObject, 4f);
-        
+        Invoke("Deactivate", 4f);
+
+    }
+
+    void Deactivate()
+    {
+        gameObject.SetActive(false);
     }
 
     private void Rotator()
     {
-        rotation = rotation + variableJoystick.Horizontal;
-        print(rotation);
-        transform.localRotation = Quaternion.Euler(transform.rotation.x, rotation, transform.rotation.z);
-       
+        transform.localRotation = Quaternion.Euler(transform.rotation.x, transform.eulerAngles.y + joystick.Horizontal, transform.rotation.z);
     }
+
+
 }

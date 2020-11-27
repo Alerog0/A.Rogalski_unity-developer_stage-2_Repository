@@ -69,8 +69,12 @@
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
+    <Compile Include="Assets\ObjectPooler.cs" />
+    <Compile Include="Assets\Particle_Controller.cs" />
+    <Compile Include="Assets\Scripts\IPoolObject.cs" />
     <Compile Include="Assets\Scripts\Player_Controller.cs" />
     <Compile Include="Assets\Scripts\Ray_Caster.cs" />
+    <Compile Include="Assets\Scripts\Spawn_Controller.cs" />
     <Reference Include="UnityEngine">
       <HintPath>D:/Program Files/Unity/Hub/Editor/2019.4.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class Ray_Caster : MonoBehaviour
 {
-    public int RayCount = 10;
-    private LineRenderer lr;
     [SerializeField] private Animator anim;
     [SerializeField] private ParticleSystem deathEffect;
+    private LineRenderer lr;
 
-    private Color visableLine = new Color(1, 1, 1, 1);
-    private Color invisableLine = new Color(1, 1, 1, 0);
-
-
-    private float clickStart;
+    public int RayCount = 10;  //Count of ray bounces
+    private float clickStart;  //Mouse timer varaible
 
     private void Start()
     {
@@ -24,8 +20,6 @@ public class Ray_Caster : MonoBehaviour
 
     void Update()
     {
-        
-
         Aiming(transform.position, transform.forward, false);
 
         if (Input.GetMouseButtonDown(0))
@@ -116,16 +110,5 @@ public class Ray_Caster : MonoBehaviour
             
         }
     }
-
-    public void VisableLaser()
-    {
-        lr.SetColors(visableLine, visableLine);
-    }
-
-    public void InvisiableLaser()
-    {
-        lr.SetColors(invisableLine, invisableLine);
-    }
-
 
 }
