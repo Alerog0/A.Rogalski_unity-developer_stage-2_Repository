@@ -28,56 +28,10 @@ public class Player_Controller : MonoBehaviour
         rotation = transform.eulerAngles.y;
     }
 
-    // Update is called once per frame
+ 
     void Update()
     {
-        if(Input.touchCount > 0) // For mobile device
-        {
-            touch = Input.GetTouch(0);
-
-            switch (touch.phase)
-            {
-                case TouchPhase.Began:
-                    beginTouchPosition = touch.position;
-                    break;
-
-                case TouchPhase.Ended:
-
-                    endTouchPosition = touch.position;
-                    if(beginTouchPosition == endTouchPosition)
-                    {
-                        rc.Aiming(transform.position, transform.forward, true);
-                    }
-                    if(beginTouchPosition != endTouchPosition)
-                    {
-                        Rotator();
-                    }
-                    break;
-
-            }
-        }
-
         Rotator();
-
-
-
-        print(transform.localRotation.y);
-
-
-
-        //Rotator();
-        /*rotation = rotation + variableJoystick.Horizontal;
-        print(rotation);
-        transform.localRotation = Quaternion.Euler(transform.rotation.x, rotation, transform.rotation.z);
-        */
-        //transform.rotation = Quaternion.Normalize(transform.rotation.x, rotation, transform.rotation.z);
-        //rb.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y * 360 + variableJoystick.Horizontal * 360, transform.rotation.z);
-        print(variableJoystick.Horizontal * 360);
-        
-
-        //transform.LookAt(new Vector3(transform.position.x + variableJoystick.Horizontal, transform.position.y, transform.position.z + variableJoystick.Vertical));
-        //transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y + variableJoystick.Horizontal * 360, transform.rotation.z);
-        
     }
 
     public void Die()

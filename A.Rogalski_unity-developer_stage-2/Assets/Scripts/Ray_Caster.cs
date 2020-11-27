@@ -8,16 +8,16 @@ public class Ray_Caster : MonoBehaviour
     private LineRenderer lr;
     [SerializeField] private Animator anim;
     [SerializeField] private ParticleSystem deathEffect;
-    private bool holding = false;
-    private Color c1 = new Color(1, 1, 1, 1);
-    private Color c2 = new Color(1, 1, 1, 0);
+
+    private Color visableLine = new Color(1, 1, 1, 1);
+    private Color invisableLine = new Color(1, 1, 1, 0);
+
 
     private float clickStart;
 
     private void Start()
     {
         lr = GetComponent<LineRenderer>();
-        holding = false;
         anim.SetBool("Aiming", true);
 
     }
@@ -25,6 +25,7 @@ public class Ray_Caster : MonoBehaviour
     void Update()
     {
         
+
         Aiming(transform.position, transform.forward, false);
 
         if (Input.GetMouseButtonDown(0))
@@ -34,6 +35,7 @@ public class Ray_Caster : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0) &&  Time.time - clickStart <= .2f)
         {
+            anim.SetTrigger("Attack");
             Aiming(transform.position, transform.forward, true);
         }
 
@@ -113,6 +115,16 @@ public class Ray_Caster : MonoBehaviour
 
             
         }
+    }
+
+    public void VisableLaser()
+    {
+        lr.SetColors(visableLine, visableLine);
+    }
+
+    public void InvisiableLaser()
+    {
+        lr.SetColors(invisableLine, invisableLine);
     }
 
 
