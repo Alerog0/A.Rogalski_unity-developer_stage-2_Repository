@@ -12,6 +12,8 @@ public class Ray_Caster : MonoBehaviour
     private Color c1 = new Color(1, 1, 1, 1);
     private Color c2 = new Color(1, 1, 1, 0);
 
+    private float clickStart;
+
     private void Start()
     {
         lr = GetComponent<LineRenderer>();
@@ -24,19 +26,17 @@ public class Ray_Caster : MonoBehaviour
     {
         
         Aiming(transform.position, transform.forward, false);
-        
-        /*if (Input.GetMouseButtonUp(0))
+
+        if (Input.GetMouseButtonDown(0))
         {
-            holding = false;
-            lr.SetColors(c2, c2);
+            clickStart = Time.time;
+        }
+
+        if (Input.GetMouseButtonUp(0) &&  Time.time - clickStart <= .2f)
+        {
             Aiming(transform.position, transform.forward, true);
-            anim.SetTrigger("Attack");
-            anim.SetBool("Aiming", false);
+        }
 
-
-
-        }*/
-    
 
     }
 

@@ -17,6 +17,9 @@ public class Player_Controller : MonoBehaviour
     private Vector2 endTouchPosition;
     private Touch touch;
 
+    private float clickStart;
+    private bool moreThenOne;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -28,7 +31,7 @@ public class Player_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.touchCount > 0)
+        if(Input.touchCount > 0) // For mobile device
         {
             touch = Input.GetTouch(0);
 
@@ -54,11 +57,15 @@ public class Player_Controller : MonoBehaviour
             }
         }
 
+        Rotator();
+
+
+
         print(transform.localRotation.y);
 
 
 
-        Rotator();
+        //Rotator();
         /*rotation = rotation + variableJoystick.Horizontal;
         print(rotation);
         transform.localRotation = Quaternion.Euler(transform.rotation.x, rotation, transform.rotation.z);
@@ -82,7 +89,6 @@ public class Player_Controller : MonoBehaviour
 
     private void Rotator()
     {
-        //float addrotation = variableJoystick.Horizontal;
         rotation = rotation + variableJoystick.Horizontal;
         print(rotation);
         transform.localRotation = Quaternion.Euler(transform.rotation.x, rotation, transform.rotation.z);
