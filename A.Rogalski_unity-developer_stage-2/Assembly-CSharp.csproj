@@ -69,9 +69,9 @@
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
-    <Compile Include="Assets\ObjectPooler.cs" />
-    <Compile Include="Assets\Particle_Controller.cs" />
     <Compile Include="Assets\Scripts\IPoolObject.cs" />
+    <Compile Include="Assets\Scripts\ObjectPooler.cs" />
+    <Compile Include="Assets\Scripts\Particle_Controller.cs" />
     <Compile Include="Assets\Scripts\Player_Controller.cs" />
     <Compile Include="Assets\Scripts\Ray_Caster.cs" />
     <Compile Include="Assets\Scripts\Spawn_Controller.cs" />
